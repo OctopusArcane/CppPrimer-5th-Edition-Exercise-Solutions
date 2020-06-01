@@ -1,0 +1,43 @@
+/*
+
+Date: June 1, 2020 1:08PM
+Originally by: Octopus
+Last Update by: 
+
+Question:
+Explain the following definitions. For those that are illegal, explain what's wrong and how to correct it.
+(a) std::cin >> int input_value;
+(b) int i = {3.14};
+(c) double salary = wage = 9999.99;
+(d) int i = 3.14;
+
+Solutions:
+(a) std::cin >> int input_value;
+
+Direct Answer: Illegal
+Explanation (basic): std::cin is an object of a class type that has defined it's input operation to take a variable
+as the right hand operand of >>. However in this statement we are passing a type int to it which is invalid.
+
+Explanation (advanced): 
+//to be written later
+
+(b) int i = {3.14};
+
+Direct Answer: Illegal
+Explanation: This is invalid because this statement results in brace initializing an int with a double which may
+result in lossing some information of the original double object(atleast the fractional part is truncated or sliced away).
+
+(c) double salary = wage = 9999.99;
+
+Direct Answer: Illegal
+Explanation: Illegal because the variable "wage" was not declared before this statement(thus; double wage;). If it were, the statement
+would be a valid one with the double 9999.99 assigned to wage and the result of the operation (lvalue reference to wage
+variable)'s value used to copy initialize salary (thus; double salary = wage);
+
+(d) int i = 3.14;
+Direct Answer: Legal
+Explanation: This is a legal statement. A double temporary 3.14 is used to copy initialize the int i. However, the fractional
+part of the double is truncated so that i = 3;
+
+ends here */
+ 
